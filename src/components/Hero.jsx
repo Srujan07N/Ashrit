@@ -2,6 +2,7 @@ import React from 'react';
 import { Download, Mail, Zap, Crosshair } from 'lucide-react';
 import { FaLinkedin } from 'react-icons/fa';
 import profileImg from '../assets/image.png';
+import resumeFile from '../assets/Resume.docx';
 
 const Hero = () => {
   return (
@@ -28,7 +29,8 @@ const Hero = () => {
           
           <div className="flex flex-wrap gap-4 pt-4 animate-on-scroll delay-300">
             <a 
-              href="#"
+              href={resumeFile}
+              download="Ashrit_KS_Resume.docx"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-rose-600 text-white px-6 py-3 rounded-lg font-bold hover:shadow-[0_0_20px_rgba(225,29,72,0.6)] hover:-translate-y-1 transition-all duration-300"
             >
               <Download size={20} />
