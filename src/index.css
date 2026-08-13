@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-background: #0f172a;
+  --color-surface: #1e293b;
+  --color-primary: #e11d48;
+  --color-secondary: #3b82f6;
+  --color-textPrimary: #f8fafc;
+  --color-textSecondary: #94a3b8;
+  --color-borderLight: #334155;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  
+  --animate-web-swing: webSwing 3s ease-in-out infinite alternate;
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-spider-bounce: spiderBounce 2s infinite;
+  
+  @keyframes webSwing {
+    0% { transform: rotate(-10deg) translate(0, 0); }
+    100% { transform: rotate(10deg) translate(10px, 0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spiderBounce {
+    0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-background text-textPrimary font-sans antialiased;
+    overflow-x: hidden;
+    /* Subtle web background pattern */
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 40%),
+      radial-gradient(circle at 100% 100%, rgba(225, 29, 72, 0.1), transparent 30%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply py-16 md:py-24 px-6 md:px-12 lg:px-24;
+  }
+  
+  .animate-on-scroll {
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
